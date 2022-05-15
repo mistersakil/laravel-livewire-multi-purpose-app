@@ -1,213 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
-<!--begin::Head-->
+<html class="loading" lang="en" data-textdirection="ltr">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Craft</title>
-
-    <meta name="description"
-        content="Craft admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets.">
-    <meta name="keywords"
-        content="Craft, bootstrap, bootstrap 5, admin themes, free admin themes, bootstrap admin, bootstrap dashboard">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    @includeIf('backend.layout.header')
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Octapia, Sakil, Sakil Jomadder, Sakil Mahmud">
+    <title>@yield('meta_title', 'Dashboard') | {{ env('APP_NAME') }}</title>
+    <link rel="apple-touch-icon" href="{{ asset('backend') . '/' }}app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="{{ asset('backend') . '/' }}app-assets/images/ico/apple-icon-120.png">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CMuli:300,400,500,700"
+        rel="stylesheet">
+    <!-- Include styles -->
+    @includeIf('backend.layout.styles')
+    <!-- End: Include styles -->
 </head>
-<!--end::Head-->
-<!--begin::Body-->
 
-<body id="kt_body"
-    class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled aside-fixed aside-default-enabled">
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click"
+    data-menu="vertical-menu" data-col="2-columns">
 
-    <!--begin::Main-->
-    <!--begin::Root-->
-    <div class="d-flex flex-column flex-root">
-        <!--begin::Page-->
-        <div class="page d-flex flex-row flex-column-fluid">
-            <!--begin::Aside-->
-            <div id="kt_aside" class="aside aside-default aside-hoverable" data-kt-drawer="true"
-                data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}"
-                data-kt-drawer-overlay="true"
-                data-kt-drawer-width="{default:&#39;200px&#39;, &#39;300px&#39;: &#39;250px&#39;}"
-                data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
-                <!--begin::Brand-->
-                <div class="aside-logo flex-column-auto pt-9 pb-5" id="kt_aside_logo">
-                    <!--begin::Logo-->
-                    <a href="/">
-                        <img alt="Logo" src="{{asset('backend/images')}}/logo-default.svg"
-                            class="max-h-50px logo-default">
-                        <img alt="Logo" src="{{asset('backend/images')}}/logo-minimize.svg"
-                            class="max-h-50px logo-minimize">
-                    </a>
-                    <!--end::Logo-->
-                </div>
-                <!--end::Brand-->
-                <!--begin::Aside menu-->
-                <div class="aside-menu flex-column-fluid">
-                    <!--begin::Aside Menu-->
-                    <!--begin::Menu-->
-                    <div class="menu menu-column menu-fit menu-rounded menu-title-gray-600 menu-icon-gray-400 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-5 my-5 mt-lg-2 mb-lg-0"
-                        id="kt_aside_menu" data-kt-menu="true">
-                        <div class="menu-fit hover-scroll-y me-lg-n5 pe-lg-5" id="kt_aside_menu_wrapper"
-                            data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}"
-                            data-kt-scroll-height="auto" data-kt-scroll-wrappers="#kt_aside_menu"
-                            data-kt-scroll-offset="20px" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer"
-                            style="height: 465px;">
-                            <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
-                                <span class="menu-link">
-                                    <span class="menu-icon">
+    <!-- Fixed-top-->
+    @includeIf('backend.layout.topbar')
+    <!--End: fixed-top-->
 
-                                        <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                                        {{-- <span class="svg-icon svg-icon-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none">
-                                                <rect x="2" y="2" width="9" height="9" rx="2" fill="black"></rect>
-                                                <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
-                                                    fill="black"></rect>
-                                                <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
-                                                    fill="black"></rect>
-                                                <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
-                                                    fill="black"></rect>
-                                            </svg>
-                                        </span> --}}
-                                        <!--end::Svg Icon-->
-                                    </span>
-                                    <span class="menu-title">
-                                        Dashboards
-                                    </span>
-                                    <span class="menu-arrow"></span>
-                                </span>
-                                <div class="menu-sub menu-sub-accordion menu-active-bg">
-                                    <div class="menu-item">
-                                        <a class="menu-link active"
-                                            href="https://preview.keenthemes.com/craft/index.html">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Multipurpose</span>
-                                        </a>
+    <!-- Left sidebar -->
+    @includeIf('backend.layout.left_sidebar')
+    <!--End: Left sidebar -->
+
+
+
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <!-- Sales stats -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
+                                            <div class="pb-1">
+                                                <div class="clearfix mb-1">
+                                                    <i class="icon-star font-large-1 blue-grey float-left mt-1"></i>
+                                                    <span
+                                                        class="font-large-2 text-bold-300 info float-right">5,879</span>
+                                                </div>
+                                                <div class="clearfix">
+                                                    <span class="text-muted">Products</span>
+                                                    <span class="info float-right"><i class="ft-arrow-up info"></i>
+                                                        16.89%</span>
+                                                </div>
+                                            </div>
+                                            <div class="progress mb-0" style="height: 7px;">
+                                                <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                                                    aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
+                                            <div class="pb-1">
+                                                <div class="clearfix mb-1">
+                                                    <i class="icon-user font-large-1 blue-grey float-left mt-1"></i>
+                                                    <span
+                                                        class="font-large-2 text-bold-300 danger float-right">423</span>
+                                                </div>
+                                                <div class="clearfix">
+                                                    <span class="text-muted">Orders</span>
+                                                    <span class="danger float-right"><i class="ft-arrow-up danger"></i>
+                                                        5.14%</span>
+                                                </div>
+                                            </div>
+                                            <div class="progress mb-0" style="height: 7px;">
+                                                <div class="progress-bar bg-danger" role="progressbar"
+                                                    style="width: 45%" aria-valuenow="45" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
+                                            <div class="pb-1">
+                                                <div class="clearfix mb-1">
+                                                    <i class="icon-shuffle font-large-1 blue-grey float-left mt-1"></i>
+                                                    <span
+                                                        class="font-large-2 text-bold-300 success float-right">61%</span>
+                                                </div>
+                                                <div class="clearfix">
+                                                    <span class="text-muted">Conversion</span>
+                                                    <span class="success float-right"><i
+                                                            class="ft-arrow-down success"></i> 2.24%</span>
+                                                </div>
+                                            </div>
+                                            <div class="progress mb-0" style="height: 7px;">
+                                                <div class="progress-bar bg-success" role="progressbar"
+                                                    style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <div class="pb-1">
+                                                <div class="clearfix mb-1">
+                                                    <i class="icon-wallet font-large-1 blue-grey float-left mt-1"></i>
+                                                    <span
+                                                        class="font-large-2 text-bold-300 warning float-right">$6,87M</span>
+                                                </div>
+                                                <div class="clearfix">
+                                                    <span class="text-muted">Profit</span>
+                                                    <span class="warning float-right"><i
+                                                            class="ft-arrow-up warning"></i> 43.84%</span>
+                                                </div>
+                                            </div>
+                                            <div class="progress mb-0" style="height: 7px;">
+                                                <div class="progress-bar bg-warning" role="progressbar"
+                                                    style="width: 60%" aria-valuenow="60" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="menu-item">
-                                        <a class="menu-link"
-                                            href="https://preview.keenthemes.com/craft/dashboards/store-analytics.html">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Store Analytics</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="menu-item pt-5">
-                                <div class="menu-content">
-                                    <span class="fw-bold text-muted text-uppercase fs-7">Crafted</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--end::Menu-->
                 </div>
-                <!--end::Aside menu-->
-                <!--begin::Footer-->
-                <div class="aside-footer flex-column-auto pb-5 d-none" id="kt_aside_footer">
-                    <a href="https://preview.keenthemes.com/craft/index.html"
-                        class="btn btn-light-primary w-100">Button</a>
-                </div>
-                <!--end::Footer-->
+                <!--/ End: Sales stats -->
+
             </div>
-            <!--end::Aside-->
-            <!--begin::Wrapper-->
-            <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-                <!--begin::Header-->
-                <div id="kt_header" class="header" data-kt-sticky="true" data-kt-sticky-name="header"
-                    data-kt-sticky-offset="{default: &#39;200px&#39;, lg: &#39;300px&#39;}"
-                    style="animation-duration: 0.3s;">
-                    <!--begin::Container-->
-                    <div class="container-xxl d-flex align-items-stretch justify-content-between">
-                        <!--begin::Logo bar-->
-                        <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-                            <!--begin::Aside Toggle-->
-                            <div class="d-flex align-items-center d-lg-none">
-                                <div class="btn btn-icon btn-active-color-primary ms-n2 me-1" id="kt_aside_toggle">
-                                    <!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
-                                    <span class="svg-icon svg-icon-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none">
-                                            <path
-                                                d="M21 7H3C2.4 7 2 6.6 2 6V4C2 3.4 2.4 3 3 3H21C21.6 3 22 3.4 22 4V6C22 6.6 21.6 7 21 7Z"
-                                                fill="black"></path>
-                                            <path opacity="0.3"
-                                                d="M21 14H3C2.4 14 2 13.6 2 13V11C2 10.4 2.4 10 3 10H21C21.6 10 22 10.4 22 11V13C22 13.6 21.6 14 21 14ZM22 20V18C22 17.4 21.6 17 21 17H3C2.4 17 2 17.4 2 18V20C2 20.6 2.4 21 3 21H21C21.6 21 22 20.6 22 20Z"
-                                                fill="black"></path>
-                                        </svg>
-                                    </span>
-                                    <!--end::Svg Icon-->
-                                </div>
-                            </div>
-                            <!--end::Aside Toggle-->
-                            <!--begin::Logo-->
-                            <a href="https://preview.keenthemes.com/craft/index.html" class="d-lg-none">
-                                <img alt="Logo" src="{{asset('backend/images')}}/logo-compact.svg" class="mh-40px">
-                            </a>
-                            <!--end::Logo-->
-                            <!--begin::Aside toggler-->
-                            <div class="btn btn-icon w-auto ps-0 btn-active-color-primary d-none d-lg-inline-flex me-2 me-lg-5"
-                                data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
-                                data-kt-toggle-name="aside-minimize">
-                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr060.svg-->
-                                <span class="svg-icon svg-icon-2 rotate-180">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <path d="M9.60001 11H21C21.6 11 22 11.4 22 12C22 12.6 21.6 13 21 13H9.60001V11Z"
-                                            fill="black"></path>
-                                        <path
-                                            d="M6.2238 13.2561C5.54282 12.5572 5.54281 11.4429 6.22379 10.7439L10.377 6.48107C10.8779 5.96697 11.75 6.32158 11.75 7.03934V16.9607C11.75 17.6785 10.8779 18.0331 10.377 17.519L6.2238 13.2561Z"
-                                            fill="black"></path>
-                                        <rect opacity="0.3" x="2" y="4" width="2" height="16" rx="1" fill="black">
-                                        </rect>
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->
-                            </div>
-                            <!--end::Aside toggler-->
-                        </div>
-                        <!--end::Logo bar-->
-                        <!--begin::Topbar-->
-                        @includeIf('backend.layout.topbar')
-                        <!--end::Topbar-->
-                    </div>
-                    <!--end::Container-->
-                </div>
-                <!--end::Header-->
-                <!--begin::Content-->
-                <div class="content fs-6 d-flex flex-column flex-column-fluid" id="kt_content">
-                    <!--begin::Breadcrumb-->
-                    @includeIf('backend.layout.breadcrumb')
-                    <!--end::Breadcrumb-->
-
-                    <!--start::Main content-->
-                    @yield('main_content')
-                    <!--end::Main content-->
-
-
-
-                </div>
-                <!--end::Content-->
-                <!--begin::Footer-->
-
-                @includeIf('backend.layout.footer')
-                <!--end::Footer-->
-            </div>
-            <!--end::Wrapper-->
         </div>
-        <!--end::Page-->
     </div>
-    <!--end::Root-->
+    <!-- Footer -->
+    @includeIf('backend.layout.footer')
+    <!--End: Footer -->
 
-    <!--Start::Footer Script-->
-    @includeIf('backend.layout.footer_scripts')
+    <!-- Scripts -->
+    @includeIf('backend.layout.scripts')
+    <!--End: Scripts -->
 
-    <!--end::Footer Script-->
 
 </body>
 
