@@ -1,32 +1,17 @@
-<div class="toolbar" id="kt_toolbar">
-    <div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
-        <!--begin::Info-->
-        <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
-            <!--begin::Title-->
-            <h1 class="text-dark fw-bolder my-1 fs-2">Dashboard
-                <small class="text-muted fs-6 fw-normal ms-1"></small>
-            </h1>
-            <!--end::Title-->
-            <!--begin::Breadcrumb-->
-            <ul class="breadcrumb fw-bold fs-base my-1">
-                <li class="breadcrumb-item text-muted">
-                    <a href="https://preview.keenthemes.com/craft/index.html"
-                        class="text-muted text-hover-primary">Home</a>
-                </li>
-                <li class="breadcrumb-item text-muted">Dashboards</li>
-                <li class="breadcrumb-item text-dark">Multipurpose</li>
-            </ul>
-            <!--end::Breadcrumb-->
-        </div>
-        <!--end::Info-->
-        <!--begin::Actions-->
-        <div class="d-flex align-items-center flex-nowrap text-nowrap py-1">
-            <a href="https://preview.keenthemes.com/craft/index.html#"
-                class="btn bg-body btn-color-gray-700 btn-active-primary me-4" data-bs-toggle="modal"
-                data-bs-target="#kt_modal_invite_friends">Invite Friends</a>
-            <a href="https://preview.keenthemes.com/craft/index.html#" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#kt_modal_create_project" id="kt_toolbar_primary_button">New Project</a>
-        </div>
-        <!--end::Actions-->
+@if (isset($meta_title))
+    <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
+        <h3 class="content-header-title mb-0 d-inline-block">
+            {{ isset($meta_title) ? $meta_title : 'Dashboard' }}
+        </h3>
     </div>
-</div>
+    <div class="content-header-right col-md-4 col-12">
+        <div class="btn-group float-md-right">
+            <button class="btn btn-secondary btn-sm mr-1" type="button">
+                <i class="icon-plus"></i> Add New
+            </button>
+            <button class="btn btn-secondary btn-sm" type="button">
+                <i class="icon-list"></i> List
+            </button>
+        </div>
+    </div>
+@endif
