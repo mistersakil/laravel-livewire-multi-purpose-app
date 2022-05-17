@@ -1,10 +1,9 @@
 <div class="row">
     <div class="col-md-12">
-        <div class="card box-shadow-2 border-primary">
+        <div class="card box-shadow-3 border-primary">
 
             <div class="card-content collapse show">
                 <div class="card-body">
-
                     <div class="table-responsive">
                         <table class="table table-xs table-bordered table-hover">
                             <thead>
@@ -81,8 +80,11 @@
                             </tbody>
                         </table>
                     </div>
+                    <!-- /.table-responsive  -->
                 </div>
+                <!-- /.card-body  -->
             </div>
+            <!-- /.card-content  -->
         </div>
         <!-- /.card -->
     </div>
