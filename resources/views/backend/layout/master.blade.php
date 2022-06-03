@@ -90,12 +90,14 @@
     <!-- ========== Scripts ========== -->
     @includeIf('backend.layout.scripts')
     <!-- ========== End Scripts ========== -->
+
+    <!-- ========== Dynamic Scripts ========== -->
+    @stack('add_js')
+
     <!-- ========== Livewire Scripts ========== -->
     @livewireScripts()
     <!-- ========== End:Livewire Scripts ========== -->
 
-    <!-- ========== Dynamic Scripts ========== -->
-    @stack('add_js')
 
 </body>
 

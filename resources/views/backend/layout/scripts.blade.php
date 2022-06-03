@@ -8,7 +8,5 @@
 <script src="{{ asset('backend') }}/assets/vendor/tinymce/tinymce.min.js"></script>
 <script src="{{ asset('backend') }}/assets/vendor/php-email-form/validate.js"></script>
 
-<!-- ========== Template Main JS File ========== -->
-<script src="{{ asset('backend') }}/assets/js/main.js"></script>
 <!-- ========== Application JS ========== -->
 <script src="{{ asset('js') }}/app.js"></script>
