@@ -10,3 +10,5 @@
 
 <!-- ========== Template Main JS File ========== -->
 <script src="{{ asset('backend') }}/assets/js/main.js"></script>
+<!-- ========== Application JS ========== -->
+<script src="{{ asset('js') }}/app.js"></script>

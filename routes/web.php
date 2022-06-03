@@ -4,8 +4,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Livewire\Backend\Users\UserListComponent;
 
-/**
- * Web Routes
- */
+### Web Routes ###
+
+Route::get('/', function () {
+    return 'Welcome to laravel livewire';
+})->name('web.home');
+### End: Web Routes ###
+
+
+### Admin Routes ###
 Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/users', UserListComponent::class)->name('admin.users');
+
+
+### End: Admin Routes ###

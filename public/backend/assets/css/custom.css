@@ -3,4 +3,9 @@
 --------------------------------------------------------------*/
 #main {
     min-height: calc(100vh - 150px);
+    padding-top: 15px;
+}
+
+.pagetitle {
+    margin-bottom: 0px;
 }

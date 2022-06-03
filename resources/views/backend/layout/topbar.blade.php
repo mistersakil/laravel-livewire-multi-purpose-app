@@ -1,9 +1,9 @@
 <header id="header" class="header bg-dark text-light fixed-top d-flex align-items-center">
     <!-- Logo -->
     <div class="d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="{{ route('admin.dashboard') }}" class="logo d-flex align-items-center">
             <img src="{{ asset('backend') }}/assets/img/logo.png" alt="">
-            <span class="d-none d-lg-block text-light">Octapia</span>
+            <span class="d-none d-lg-block text-light">Admin Panel</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn text-light"></i>
     </div>
@@ -13,7 +13,8 @@
         <ul class="d-flex align-items-center">
             <!-- Home Link -->
             <li class="nav-item dropdown">
-                <a href="" class="btn btn-sm btn-outline-primary text-light" title="Home Page" target="_blank">
+                <a href="{{ route('web.home') }}" class="btn btn-sm btn-outline-primary text-light" title="Home Page"
+                    target="_blank">
                     <i class="bi bi-globe"></i>
                 </a>
 

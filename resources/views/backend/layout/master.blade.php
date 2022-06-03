@@ -5,7 +5,11 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Components / Accordion - NiceAdmin Bootstrap Template</title>
+    <title>@if (isset($page_title))
+        {{ $page_title }}
+        @else
+        Dashboard
+        @endif | {{ env('APP_NAME') }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -17,6 +21,10 @@
     <!-- Links -->
     @includeIf('backend.layout.links')
     <!-- End: Links -->
+    <!-- Livewire Styles -->
+    @livewireStyles()
+    <!-- End: Livewire Styles -->
+
 </head>
 
 <body>
@@ -31,47 +39,39 @@
 
     <main id="main" class="main">
 
-        <div class="pagetitle">
-            <h1>Blank Page</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Pages</li>
-                    <li class="breadcrumb-item active">Blank</li>
-                </ol>
-            </nav>
-        </div>
-        <!-- End Page Title -->
-
-        <section class="section">
-            <div class="row">
-                <div class="col-lg-6">
-
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Example Card</h5>
-                            <p>This is an examle page with no contrnt. You can use it as a starter for your custom
-                                pages.</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-6">
-
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Example Card</h5>
-                            <p>This is an examle page with no contrnt. You can use it as a starter for your custom
-                                pages.</p>
-                        </div>
-                    </div>
-
-                </div>
+        <div class="pagetitle d-flex justify-content-between">
+            <div>
+                <h1>
+                    @if (isset($page_title))
+                    {{ $page_title }}
+                    @else
+                    Dashboard
+                    @endif
+                </h1>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="">Home</a></li>
+                        <li class="breadcrumb-item">Pages</li>
+                        <li class="breadcrumb-item active">Blank</li>
+                    </ol>
+                    <!-- /.breadcrumb -->
+                </nav>
+                <!-- /nav -->
             </div>
-        </section>
+            <div>
+                <button type="button" class="btn btn-secondary pull-right"><i class="bi bi-plus me-1"></i> Add
+                    New</button>
+            </div>
 
-    </main><!-- End #main -->
+        </div>
+        <!-- /.pagetitle -->
+        <!-- ========== Main Content Area ========== -->
+        {{ $slot }}
+        <!-- ========== End:Main Content Area ========== -->
+
+
+    </main>
+    <!-- End /.main -->
 
     <!-- ========== Footer ========== -->
     @includeIf('backend.layout.footer')
@@ -83,6 +83,9 @@
     <!-- ========== Scripts ========== -->
     @includeIf('backend.layout.scripts')
     <!-- ========== End Scripts ========== -->
+    <!-- Livewire Scripts -->
+    @livewireScripts()
+    <!-- End:Livewire Scripts -->
 
 </body>
 
