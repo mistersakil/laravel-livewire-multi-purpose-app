@@ -1,12 +1,12 @@
 <footer id="footer" class="footer">
     <div class="copyright">
-        &copy; Copyright
+        {{ date('Y') }} &copy; Copyright
         <strong>
-            <span>NiceAdmin</span>
-        </strong>.
+            Octapia.
+        </strong>
         All Rights Reserved
     </div>
     <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://www.facebook.com/groups/websiteowner/" target="_blank">Website Owner</a>
     </div>
 </footer>

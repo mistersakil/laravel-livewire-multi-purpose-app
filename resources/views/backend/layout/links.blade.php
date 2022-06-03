@@ -15,3 +15,5 @@
 
 <!-- ========== Template Main CSS File ========== -->
 <link href="{{ asset('backend') }}/assets/css/style.css" rel="stylesheet">
+<!-- ========== Template Custom CSS File ========== -->
+<link href="{{ asset('backend') }}/assets/css/custom.css" rel="stylesheet">

@@ -3,7 +3,7 @@
     <div class="d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
             <img src="{{ asset('backend') }}/assets/img/logo.png" alt="">
-            <span class="d-none d-lg-block text-light">NiceAdmin</span>
+            <span class="d-none d-lg-block text-light">Octapia</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn text-light"></i>
     </div>
@@ -58,39 +58,6 @@
                             <p>Quae dolorem earum veritatis oditseno</p>
                             <p>1 hr. ago</p>
                         </div>
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="notification-item">
-                        <i class="bi bi-check-circle text-success"></i>
-                        <div>
-                            <h4>Sit rerum fuga</h4>
-                            <p>Quae dolorem earum veritatis oditseno</p>
-                            <p>2 hrs. ago</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li class="notification-item">
-                        <i class="bi bi-info-circle text-primary"></i>
-                        <div>
-                            <h4>Dicta reprehenderit</h4>
-                            <p>Quae dolorem earum veritatis oditseno</p>
-                            <p>4 hrs. ago</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li class="dropdown-footer">
-                        <a href="#">Show all notifications</a>
                     </li>
 
                 </ul>
