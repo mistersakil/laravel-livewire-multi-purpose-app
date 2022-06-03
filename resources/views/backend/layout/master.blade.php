@@ -13,17 +13,21 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <!-- Favicons -->
+    <!-- ========== Favicons ========== -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-    <!-- End: Favicons -->
+    <!-- ========== End: Favicons ========== -->
 
-    <!-- Links -->
+    <!-- ========== Links ========== -->
     @includeIf('backend.layout.links')
-    <!-- End: Links -->
-    <!-- Livewire Styles -->
+    <!-- ========== End: Links ========== -->
+
+    <!-- ========== Livewire Styles ========== -->
     @livewireStyles()
-    <!-- End: Livewire Styles -->
+    <!-- ========== End: Livewire Styles ========== -->
+
+    <!-- ========== Dynamic Styles ========== -->
+    @stack('add_css')
 
 </head>
 
@@ -59,8 +63,11 @@
                 <!-- /nav -->
             </div>
             <div>
-                <button type="button" class="btn btn-secondary pull-right"><i class="bi bi-plus me-1"></i> Add
-                    New</button>
+                <button type="button" class="btn btn-secondary pull-right" id="add_btn" data-bs-toggle="modal"
+                    data-bs-target="#add_modal">
+                    <i class="bi bi-plus me-1"></i>
+                    Add New
+                </button>
             </div>
 
         </div>
@@ -83,9 +90,12 @@
     <!-- ========== Scripts ========== -->
     @includeIf('backend.layout.scripts')
     <!-- ========== End Scripts ========== -->
-    <!-- Livewire Scripts -->
+    <!-- ========== Livewire Scripts ========== -->
     @livewireScripts()
-    <!-- End:Livewire Scripts -->
+    <!-- ========== End:Livewire Scripts ========== -->
+
+    <!-- ========== Dynamic Scripts ========== -->
+    @stack('add_js')
 
 </body>
 
