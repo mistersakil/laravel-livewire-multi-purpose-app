@@ -69,3 +69,10 @@
 </section>
 <!-- /.section -->
 
+@push('add_js')
+
+<script>
+
+</script>
+
+@endpush
