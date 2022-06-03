@@ -1,59 +1,88 @@
 <!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="ltr">
+<html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="Octapia, Sakil, Sakil Jomadder, Sakil Mahmud">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>{{ isset($meta_title) ? $meta_title : 'Dashboard' }} | {{ env('APP_NAME') }}</title>
+    <title>Components / Accordion - NiceAdmin Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-    <link rel="apple-touch-icon" href="{{ asset('backend') . '/' }}app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon"
-        href="{{ asset('backend') . '/' }}app-assets/images/ico/apple-icon-120.png">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CMuli:300,400,500,700"
-        rel="stylesheet">
-    <!-- Include styles -->
-    @includeIf('backend.layout.styles')
-    <!-- End: Include styles -->
-    @livewireStyles
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- End: Favicons -->
+
+    <!-- Links -->
+    @includeIf('backend.layout.links')
+    <!-- End: Links -->
 </head>
 
-<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click"
-    data-menu="vertical-menu" data-col="2-columns">
+<body>
 
-    <!-- Fixed-top-->
+    <!-- ======= Header ======= -->
     @includeIf('backend.layout.topbar')
-    <!--End: fixed-top-->
+    <!-- ======= End Header ======= -->
 
-    <!-- Left sidebar -->
+    <!-- ======= Sidebar ======= -->
     @includeIf('backend.layout.left_sidebar')
-    <!--End: Left sidebar -->
+    <!-- ======= End Sidebar ======= -->
 
+    <main id="main" class="main">
 
-
-    <div class="app-content content">
-        <div class="content-wrapper">
-            <div class="content-header row">
-                @includeIf('backend.layout.breadcrumb')
-            </div>
-            <div class="content-body">
-                {{ $slot }}
-            </div>
+        <div class="pagetitle">
+            <h1>Blank Page</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Pages</li>
+                    <li class="breadcrumb-item active">Blank</li>
+                </ol>
+            </nav>
         </div>
-    </div>
-    <!-- Footer -->
-    @includeIf('backend.layout.footer')
-    <!--End: Footer -->
+        <!-- End Page Title -->
 
-    <!-- Scripts -->
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-6">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Example Card</h5>
+                            <p>This is an examle page with no contrnt. You can use it as a starter for your custom
+                                pages.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Example Card</h5>
+                            <p>This is an examle page with no contrnt. You can use it as a starter for your custom
+                                pages.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+    <!-- ========== Footer ========== -->
+    @includeIf('backend.layout.footer')
+    <!-- ========== End Footer ========== -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- ========== Scripts ========== -->
     @includeIf('backend.layout.scripts')
-    <!--End: Scripts -->
-    @livewireScripts
+    <!-- ========== End Scripts ========== -->
 
 </body>
 

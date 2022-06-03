@@ -1,53 +1,143 @@
-<nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-semi-dark navbar-shadow">
-    <div class="navbar-wrapper">
-        <div class="navbar-header">
-            <ul class="nav navbar-nav flex-row">
-                <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs"
-                        href="#"><i class="ft-menu font-large-1"></i></a></li>
-                <li class="nav-item"><a class="navbar-brand" href="{{ route('admin.dashboard') }}"><img
-                            class="brand-logo" alt="robust admin logo"
-                            src="{{ asset('backend') . '/' }}app-assets/images/logo/logo-light-sm.png">
-                        <h3 class="brand-text">Octapia Admin</h3>
-                    </a></li>
-                <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse"
-                        data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
-            </ul>
-        </div>
-        <div class="navbar-container content">
-            <div class="collapse navbar-collapse" id="navbar-mobile">
-                <ul class="nav navbar-nav mr-auto float-left">
-                    <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs"
-                            href="#"><i class="ft-menu"> </i></a></li>
-
-                    <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i
-                                class="ficon ft-maximize"></i></a></li>
-                    <li class="nav-item nav-search">
-                        <a class="nav-link nav-link-search" href="#"><i class="ficon ft-search"></i></a>
-                        <div class="search-input">
-                            <input class="input" type="text" placeholder="Explore...">
-                        </div>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav float-right">
-                    <li class="dropdown dropdown-user nav-item">
-                        <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                            <span class="avatar avatar-online">
-                                <img src="{{ asset('backend') . '/' }}app-assets/images/portrait/small/avatar-s-1.png"
-                                    alt="avatar">
-                                <i></i>
-                            </span>
-                            <span class="user-name">John Doe</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="user-profile.html">
-                                <i class="ft-user"></i> Edit Profile</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="login-with-bg-image.html">
-                                <i class="ft-power"></i> Logout</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<header id="header" class="header bg-dark text-light fixed-top d-flex align-items-center">
+    <!-- Logo -->
+    <div class="d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+            <img src="{{ asset('backend') }}/assets/img/logo.png" alt="">
+            <span class="d-none d-lg-block text-light">NiceAdmin</span>
+        </a>
+        <i class="bi bi-list toggle-sidebar-btn text-light"></i>
     </div>
-</nav>
+    <!-- End Logo -->
+
+    <nav class="header-nav ms-auto">
+        <ul class="d-flex align-items-center">
+            <!-- Home Link -->
+            <li class="nav-item dropdown">
+                <a href="" class="btn btn-sm btn-outline-primary text-light" title="Home Page" target="_blank">
+                    <i class="bi bi-globe"></i>
+                </a>
+
+            </li>
+            <!-- End Home Link -->
+
+            <!-- Notification Nav -->
+            <li class="nav-item dropdown">
+
+                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                    <i class="bi bi-bell text-light"></i>
+                    <span class="badge bg-primary badge-number">4</span>
+                </a>
+                <!-- End Notification Icon -->
+
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+                    <li class="dropdown-header">
+                        You have 4 new notifications
+                        <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="notification-item">
+                        <i class="bi bi-exclamation-circle text-warning"></i>
+                        <div>
+                            <h4>Lorem Ipsum</h4>
+                            <p>Quae dolorem earum veritatis oditseno</p>
+                            <p>30 min. ago</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="notification-item">
+                        <i class="bi bi-x-circle text-danger"></i>
+                        <div>
+                            <h4>Atque rerum nesciunt</h4>
+                            <p>Quae dolorem earum veritatis oditseno</p>
+                            <p>1 hr. ago</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="notification-item">
+                        <i class="bi bi-check-circle text-success"></i>
+                        <div>
+                            <h4>Sit rerum fuga</h4>
+                            <p>Quae dolorem earum veritatis oditseno</p>
+                            <p>2 hrs. ago</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li class="notification-item">
+                        <i class="bi bi-info-circle text-primary"></i>
+                        <div>
+                            <h4>Dicta reprehenderit</h4>
+                            <p>Quae dolorem earum veritatis oditseno</p>
+                            <p>4 hrs. ago</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li class="dropdown-footer">
+                        <a href="#">Show all notifications</a>
+                    </li>
+
+                </ul>
+                <!-- End Notification Dropdown Items -->
+
+            </li>
+            <!-- End Notification Nav -->
+
+
+            <li class="nav-item dropdown pe-3">
+                <!-- End Profile Iamge Icon -->
+                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                    <img src="{{ asset('backend') }}/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2 text-light">K. Anderson</span>
+                </a>
+                <!-- End Profile Iamge Icon -->
+
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                    <li class="dropdown-header">
+                        <h6>Kevin Anderson</h6>
+                        <span>Web Designer</span>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                            <i class="bi bi-person"></i>
+                            <span>My Profile</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <!-- /.dropdown-menu -->
+            </li>
+            <!-- /.nav-item  -->
+        </ul>
+        <!-- /ul -->
+    </nav>
+    <!-- /.header-nav -->
+</header>
+<!-- /.header -->

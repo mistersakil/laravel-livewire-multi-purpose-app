@@ -1,26 +1,12 @@
- <!-- BEGIN VENDOR JS-->
- <script src="{{ asset('backend') . '/' }}app-assets/vendors/js/vendors.min.js"></script>
- <!-- BEGIN VENDOR JS-->
- <!-- BEGIN PAGE VENDOR JS-->
- <script src="{{ asset('backend') . '/' }}app-assets/vendors/js/charts/raphael-min.js"></script>
- <script src="{{ asset('backend') . '/' }}app-assets/vendors/js/charts/morris.min.js"></script>
- <script src="{{ asset('backend') . '/' }}app-assets/vendors/js/charts/chart.min.js"></script>
- <script src="{{ asset('backend') . '/' }}app-assets/vendors/js/charts/jvector/jquery-jvectormap-2.0.3.min.js"></script>
- <script src="{{ asset('backend') . '/' }}app-assets/vendors/js/charts/jvector/jquery-jvectormap-world-mill.js"></script>
- <script src="{{ asset('backend') . '/' }}app-assets/vendors/js/extensions/moment.min.js"></script>
- <script src="{{ asset('backend') . '/' }}app-assets/vendors/js/extensions/underscore-min.js"></script>
- <script src="{{ asset('backend') . '/' }}app-assets/vendors/js/extensions/clndr.min.js"></script>
- <script src="{{ asset('backend') . '/' }}app-assets/vendors/js/charts/echarts/echarts.js"></script>
- <script src="{{ asset('backend') . '/' }}app-assets/vendors/js/extensions/unslider-min.js"></script>
- <!-- END PAGE VENDOR JS-->
- <!-- BEGIN ROBUST JS-->
- <script src="{{ asset('backend') . '/' }}app-assets/js/core/app-menu.min.js"></script>
- <script src="{{ asset('backend') . '/' }}app-assets/js/core/app.min.js"></script>
- <script src="{{ asset('backend') . '/' }}app-assets/js/scripts/customizer.min.js"></script>
- <!-- END ROBUST JS-->
- <!-- BEGIN PAGE LEVEL JS-->
- <script src="{{ asset('backend') . '/' }}app-assets/js/scripts/pages/dashboard-ecommerce.min.js"></script>
- <!-- END PAGE LEVEL JS-->
- <!-- App JS-->
- <script src="{{ asset('js') . '/' }}app.js"></script>
- <!-- END App JS-->
+<!-- ========== Vendor JS Files ========== -->
+<script src="{{ asset('backend') }}/assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="{{ asset('backend') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('backend') }}/assets/vendor/chart.js/chart.min.js"></script>
+<script src="{{ asset('backend') }}/assets/vendor/echarts/echarts.min.js"></script>
+<script src="{{ asset('backend') }}/assets/vendor/quill/quill.min.js"></script>
+<script src="{{ asset('backend') }}/assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="{{ asset('backend') }}/assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="{{ asset('backend') }}/assets/vendor/php-email-form/validate.js"></script>
+
+<!-- ========== Template Main JS File ========== -->
+<script src="{{ asset('backend') }}/assets/js/main.js"></script>
