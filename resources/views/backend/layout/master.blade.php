@@ -22,12 +22,13 @@
     @includeIf('backend.layout.links')
     <!-- ========== End: Links ========== -->
 
+    <!-- ========== Dynamic Styles ========== -->
+    @stack('add_css')
+
+
     <!-- ========== Livewire Styles ========== -->
     @livewireStyles()
     <!-- ========== End: Livewire Styles ========== -->
-
-    <!-- ========== Dynamic Styles ========== -->
-    @stack('add_css')
 
 </head>
 
