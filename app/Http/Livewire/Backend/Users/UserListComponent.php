@@ -6,18 +6,25 @@ use Livewire\Component;
 
 class UserListComponent extends Component
 {
-    public $first_name = "sakilmahmud";
+    public $user = [];
+
     public function createNew()
     {
         dd('created');
     }
     /**
+     * Create user
+     */
+    public function create()
+    {
+        dd($this->user);
+    }
+    /**
      * display_create_modal
      */
-
-    public function display_create_modal()
+    public function add_modal()
     {
-        dd('here');
+        $this->dispatchBrowserEvent('add_modal');
     }
 
     public function render()

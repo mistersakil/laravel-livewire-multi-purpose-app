@@ -14,9 +14,6 @@
 <link href="{{ asset('backend') }}/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 <link href="{{ asset('backend') }}/assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
-<!-- ========== App CSS File ========== -->
-{{--
-<link href="{{ asset('css') }}/app.css" rel="stylesheet"> --}}
 <!-- ========== Template Main CSS File ========== -->
 <link href="{{ asset('backend') }}/assets/css/style.css" rel="stylesheet">
 <!-- ========== Template Custom CSS File ========== -->

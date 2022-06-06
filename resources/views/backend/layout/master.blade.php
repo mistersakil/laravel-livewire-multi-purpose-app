@@ -5,11 +5,13 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>@if (isset($page_title))
-        {{ $page_title }}
+    <title>
+        @if (isset($page_title))
+            {{ $page_title }}
         @else
-        Dashboard
-        @endif | {{ env('APP_NAME') }}</title>
+            Dashboard
+        @endif | {{ env('APP_NAME') }}
+    </title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -44,35 +46,7 @@
 
     <main id="main" class="main">
 
-        <div class="pagetitle d-flex justify-content-between">
-            <div>
-                <h1>
-                    @if (isset($page_title))
-                    {{ $page_title }}
-                    @else
-                    Dashboard
-                    @endif
-                </h1>
-                <nav>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
-                        <li class="breadcrumb-item">Pages</li>
-                        <li class="breadcrumb-item active">Blank</li>
-                    </ol>
-                    <!-- /.breadcrumb -->
-                </nav>
-                <!-- /nav -->
-            </div>
-            <div>
-                <button type="button" class="btn btn-secondary pull-right" id="add_btn" data-bs-toggle="modal"
-                    data-bs-target="#add_modal">
-                    <i class="bi bi-plus me-1"></i>
-                    Add New
-                </button>
-            </div>
 
-        </div>
-        <!-- /.pagetitle -->
         <!-- ========== Main Content Area ========== -->
         {{ $slot }}
         <!-- ========== End:Main Content Area ========== -->
