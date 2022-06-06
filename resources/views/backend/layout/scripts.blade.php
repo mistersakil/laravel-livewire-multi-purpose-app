@@ -11,5 +11,5 @@
 <!-- Template Main JS File -->
 {{-- <script src="{{ asset('backend') }}/assets/js/main.js"></script> --}}
 <!-- Template Custom JS File -->
-<script src="{{ asset('backend') }}/assets/js/custom.js"></script>
+<script src="{{ asset('backend') }}/assets/js/custom.js" defer></script>
 {{-- <script src="{{ asset('js') }}/app.js"></script> --}}

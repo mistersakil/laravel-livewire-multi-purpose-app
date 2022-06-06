@@ -76,6 +76,9 @@
                     </table>
                     <!-- /.table -->
 
+                    <!-- Pagination links -->
+
+
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -183,5 +186,28 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+
+    <!-- Toast Notification -->
+    <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative">
+        <div class="toast-container position-fixed top-0 end-0 p-1" style="z-index: 111111">
+            <div class="toast" id="success_toast">
+                <div class="toast-header">
+                    <strong class="me-auto">Successful</strong>
+                    <small>1 sec ago</small>
+                    <button type="button" class="btn-close text-danger" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+                <!-- /.toast-header -->
+                <div class="toast-body bg-success text-light">
+                    Hay! User created successfully
+                </div>
+                <!-- /.toast-body -->
+            </div>
+            <!-- /.toast -->
+        </div>
+        <!-- /.toast-container -->
+    </div>
+    <!-- End: Toast Notification -->
+
 </section>
 <!-- /.section -->

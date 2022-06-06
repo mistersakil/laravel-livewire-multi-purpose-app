@@ -35,7 +35,13 @@ class UserListComponent extends Component
             $new_user->password     = bcrypt($inputs['password']);
             $new_user->token        = Str::random(60);
             $new_user->save();
+
+            ## Reset user data ##
             $this->user = [];
+
+            ## Dispatch browser event
+            $this->dispatchBrowserEvent('success_toast_event');
+
             return back();
         } catch (\Throwable $th) {
             ## Throw error message (throw $th) ##
@@ -48,7 +54,7 @@ class UserListComponent extends Component
      */
     public function add_modal()
     {
-        $this->dispatchBrowserEvent('add_modal');
+        $this->dispatchBrowserEvent('add_modal_event');
     }
     /**
      * Rendering page
@@ -56,7 +62,7 @@ class UserListComponent extends Component
      */
     public function render()
     {
-        $users = User::latest()->paginate();
+        $users = User::latest()->paginate(10);
         return view('livewire.backend.users.user-list-component', compact('users'))->layoutData(['page_title' => 'User List']);
     }
 }
