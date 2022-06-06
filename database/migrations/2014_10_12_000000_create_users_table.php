@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('mobile')->unique();
             $table->string('password');
+            $table->boolean('status')->default(1);
             $table->string('token');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->cascadeOnDelete();
         });
     }
 

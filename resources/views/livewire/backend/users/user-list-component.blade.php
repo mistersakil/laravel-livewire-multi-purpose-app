@@ -32,32 +32,50 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr class="table-active">
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Position</th>
-                                <th scope="col">Age</th>
-                                <th scope="col">Start Date</th>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Status</th>
+                                <th>Created At</th>
+                                <th class="text-center">Actions</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Brandon Jacob</td>
-                                <td>Designer</td>
-                                <td>28</td>
-                                <td>2016-05-25</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Bridie Kessler</td>
-                                <td>Developer</td>
-                                <td>35</td>
-                                <td>2014-12-05</td>
-                            </tr>
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->mobile }}</td>
+                                    <td>
+                                        @if ($user->status)
+                                            <span class="badge bg-success">Active</span>
+                                        @else
+                                            <span class="badge bg-danger">Inactive</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $user->created_at->diffForHumans() }}</td>
+                                    <td class="text-center">
+                                        <a href="" class="btn btn-secondary btn-sm" title="View">
+                                            <i class="bi bi-eye me-1"></i>
+                                        </a>
+                                        <a href="" class="btn btn-warning btn-sm" title="View">
+                                            <i class="bi bi-pencil me-1"></i>
+                                        </a>
+                                        <a href="" class="btn btn-danger btn-sm" title="View">
+                                            <i class="bi bi-trash me-1"></i>
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
                     <!-- /.table -->
+
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -68,8 +86,7 @@
     <!-- /.row -->
 
     <!-- Modal -->
-    <div class="modal fade" id="add_modal" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="add_modal" wire:ignore.self>
         <div class="modal-dialog">
             <form wire:submit.prevent="create">
                 <div class="modal-content">
@@ -82,38 +99,66 @@
                     <div class="modal-body">
 
                         <div class="form-floating mb-3">
-                            <input type="name" class="form-control" wire:model.defer="user.name"
-                                placeholder="Full Name">
+                            <input type="name" class="form-control  @error('name') is-invalid @enderror"
+                                wire:model.defer="user.name" placeholder="Full Name">
                             <label for="name">Name</label>
+                            @error('name')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+
                         </div>
                         <!-- /.form-floating -->
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" wire:model.defer="user.email" placeholder="Email">
+                            <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                wire:model.defer="user.email" placeholder="Email">
                             <label>Email</label>
+                            @error('email')
+                                <div id="invalid_name" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <!-- /.form-floating -->
 
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" wire:model.defer="user.password"
-                                placeholder="Password">
+                            <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                wire:model.defer="user.password" placeholder="Password">
                             <label>Password</label>
+                            @error('password')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <!-- /.form-floating -->
 
 
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" wire:model.defer="user.confirm_password"
-                                placeholder="Password">
-                            <label for="password">Confirm Password</label>
+                            <input type="password"
+                                class="form-control @error('password_confirmation ') is-invalid @enderror"
+                                wire:model.defer="user.password_confirmation" placeholder="Password">
+                            <label>Confirm Password</label>
+                            @error('password_confirmation')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <!-- /.form-floating -->
 
 
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control" wire:model.defer="user.mobile"
-                                placeholder="Mobile">
-                            <label for="mobile">Mobile</label>
+                            <input type="number" class="form-control @error('mobile') is-invalid @enderror"
+                                wire:model.defer="user.mobile" placeholder="Mobile">
+                            <label>Mobile</label>
+                            @error('mobile')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <!-- /.form-floating -->
 
