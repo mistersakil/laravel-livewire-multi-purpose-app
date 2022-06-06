@@ -5,7 +5,7 @@
         <li class="nav-item">
             <a class="nav-link {{ request()->is('admin') ? '' : 'collapsed' }}"
                 href="{{ route('admin.dashboard') }}">
-                <i class="bx bxs-dashboard"></i>
+                <i class="ri-grid-line"></i>
                 <span>Dashboard</span>
             </a>
         </li>
@@ -13,7 +13,7 @@
         <li class="nav-item ">
             <a class="nav-link {{ request()->is('admin/users') ? '' : 'collapsed' }}"
                 href="{{ route('admin.users') }}">
-                <i class="bx bxs-user"></i>
+                <i class="ri-group-2-fill"></i>
                 <span>Users</span>
             </a>
         </li>
