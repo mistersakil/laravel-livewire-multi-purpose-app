@@ -7,9 +7,9 @@ window.addEventListener('DOMContentLoaded', function () {
     })
 
     /* Event lister after creating new user and display toast message */
-    window.addEventListener('success_toast_event', event => {
-        var success_toast = document.getElementById('success_toast')
-        var toast = new bootstrap.Toast(success_toast)
+    window.addEventListener('toast_event', event => {
+        var toast_alert = document.getElementById('toast_alert')
+        var toast = new bootstrap.Toast(toast_alert)
         toast.show()
     })
 

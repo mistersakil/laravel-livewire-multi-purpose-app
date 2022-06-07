@@ -17,7 +17,7 @@
         </div>
         <div>
             <button type="button" class="btn btn-secondary pull-right" id="add_btn" data-bs-toggle="modal"
-                wire:click.prevent="add_modal">
+                wire:click.prevent="create">
                 <i class="bi bi-plus me-1"></i>
                 Add New
             </button>
@@ -58,10 +58,11 @@
                                     </td>
                                     <td>{{ $user->created_at->diffForHumans() }}</td>
                                     <td class="text-center">
-                                        <a href="" class="btn btn-secondary btn-sm" title="View">
+                                        <a class="btn btn-secondary btn-sm" title="View">
                                             <i class="bi bi-eye me-1"></i>
                                         </a>
-                                        <a href="" class="btn btn-warning btn-sm" title="View">
+                                        <a wire:click.prevent="edit({{ $user }})" class="btn btn-warning btn-sm"
+                                            title="View">
                                             <i class="bi bi-pencil me-1"></i>
                                         </a>
                                         <a href="" class="btn btn-danger btn-sm" title="View">
@@ -91,10 +92,17 @@
     <!-- Modal -->
     <div class="modal fade" id="add_modal" wire:ignore.self>
         <div class="modal-dialog">
-            <form wire:submit.prevent="create">
+            <form wire:submit.prevent="{{ !$is_edit ? 'store' : 'update' }}">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Add New User</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">
+                            @if ($is_edit)
+                                Edit User Info
+                            @else
+                                Add New User
+                            @endif
+
+                        </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
@@ -190,7 +198,7 @@
     <!-- Toast Notification -->
     <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative">
         <div class="toast-container position-fixed top-0 end-0 p-1" style="z-index: 111111">
-            <div class="toast" id="success_toast">
+            <div class="toast" id="toast_alert">
                 <div class="toast-header">
                     <strong class="me-auto">Successful</strong>
                     <small>1 sec ago</small>
@@ -199,7 +207,13 @@
                 </div>
                 <!-- /.toast-header -->
                 <div class="toast-body bg-success text-light">
-                    Hay! User created successfully
+                    Hay! User
+                    @if ($is_edit)
+                        updated
+                    @else
+                        created
+                    @endif
+                    successfully
                 </div>
                 <!-- /.toast-body -->
             </div>

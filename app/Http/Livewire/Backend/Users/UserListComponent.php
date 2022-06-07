@@ -11,12 +11,26 @@ use Illuminate\Support\Str;
 class UserListComponent extends Component
 {
     public $user = [];
+    public $is_edit = false;
+
 
     /**
-     * Create user
-     * @return redirect back
+     * Display create modal
+     * @return view modal window
      */
     public function create()
+    {
+        $this->is_edit = false;
+        $this->user = [];
+        $this->dispatchBrowserEvent('add_modal_event');
+    }
+
+
+    /**
+     * Store new user
+     * @return redirect back
+     */
+    public function store()
     {
         ## Validate inputs ##
         $inputs                     = Validator::make($this->user, [
@@ -40,7 +54,7 @@ class UserListComponent extends Component
             $this->user = [];
 
             ## Dispatch browser event
-            $this->dispatchBrowserEvent('success_toast_event');
+            $this->dispatchBrowserEvent('toast_event');
 
             return back();
         } catch (\Throwable $th) {
@@ -48,14 +62,55 @@ class UserListComponent extends Component
 
         }
     }
+
+
     /**
-     * Display create modal
+     * Display edit modal
      * @return view modal window
      */
-    public function add_modal()
+    public function edit(User $user)
     {
+        $this->user = $user->toArray();
+        $this->is_edit = true;
         $this->dispatchBrowserEvent('add_modal_event');
     }
+
+
+    /**
+     * Update existing user
+     * @return redirect back
+     */
+    public function update()
+    {
+        // dd($this->user);
+        $existing_user = User::find($this->user['id']);
+        ## Validate inputs ##
+        $inputs                     = Validator::make($this->user, [
+            'name'                  => ['required'],
+            'email'                 => ['required', 'email', 'unique:users,email,' . $this->user['id']],
+            'mobile'                => ['required', 'unique:users,mobile,' . $this->user['id']],
+            'password'              => ['sometimes', 'confirmed', Password::min(6)],
+        ])->validate();
+
+        try {
+            if (isset($inputs['password']) && !empty($inputs['password'])) {
+                $inputs['password'] = bcrypt($inputs['password']);
+            }
+
+            ## Update existing user info ##
+            $existing_user->update($inputs);
+
+            ## Dispatch browser event
+            $this->dispatchBrowserEvent('toast_event');
+
+            return back();
+        } catch (\Throwable $th) {
+            ## Throw error message (throw $th) ##
+
+        }
+    }
+
+
     /**
      * Rendering page
      * @return view user list
