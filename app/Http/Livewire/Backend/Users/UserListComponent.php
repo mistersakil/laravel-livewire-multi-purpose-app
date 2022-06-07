@@ -82,8 +82,9 @@ class UserListComponent extends Component
      */
     public function update()
     {
-        // dd($this->user);
+        ## Find existing user ##
         $existing_user = User::find($this->user['id']);
+
         ## Validate inputs ##
         $inputs                     = Validator::make($this->user, [
             'name'                  => ['required'],
@@ -100,7 +101,7 @@ class UserListComponent extends Component
             ## Update existing user info ##
             $existing_user->update($inputs);
 
-            ## Dispatch browser event
+            ## Dispatch toast alert to browser
             $this->dispatchBrowserEvent('toast_event');
 
             return back();
@@ -110,6 +111,17 @@ class UserListComponent extends Component
         }
     }
 
+
+    /**
+     * Show user details on modal
+     * @return view modal window with user details
+     */
+    public function show(User $user)
+    {
+        dd($user);
+        $this->user = $user;
+        $this->dispatchBrowserEvent('show_modal_event');
+    }
 
     /**
      * Rendering page

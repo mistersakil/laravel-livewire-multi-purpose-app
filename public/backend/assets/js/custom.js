@@ -12,6 +12,12 @@ window.addEventListener('DOMContentLoaded', function () {
         var toast = new bootstrap.Toast(toast_alert)
         toast.show()
     })
+    /* Event listener to create new user on modal window */
+    window.addEventListener('show_modal_event', event => {
+        let show_modal = new bootstrap.Modal(document.querySelector('#show_modal'));
+        show_modal.show();
+    })
+
 
 }, false);
 
