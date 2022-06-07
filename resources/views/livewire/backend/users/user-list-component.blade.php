@@ -58,14 +58,14 @@
                                     </td>
                                     <td>{{ $user->created_at->diffForHumans() }}</td>
                                     <td class="text-center">
-                                        <a class="btn btn-secondary btn-sm" title="View">
+                                        <a href="" class="badge bg-secondary btn-sm" title="View">
                                             <i class="bi bi-eye me-1"></i>
                                         </a>
-                                        <a wire:click.prevent="edit({{ $user }})" class="btn btn-warning btn-sm"
-                                            title="View">
+                                        <a href="" wire:click.prevent="edit({{ $user }})"
+                                            class="badge bg-warning btn-sm" title="View">
                                             <i class="bi bi-pencil me-1"></i>
                                         </a>
-                                        <a href="" class="btn btn-danger btn-sm" title="View">
+                                        <a href="" href="" class="badge bg-danger btn-sm" title="View">
                                             <i class="bi bi-trash me-1"></i>
                                         </a>
                                     </td>
