@@ -1,5 +1,4 @@
 <section class="section">
-
     <div class="pagetitle d-flex justify-content-between">
         <div>
             <h1>
@@ -49,36 +48,45 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->mobile }}</td>
-                                    <td>
-                                        @if ($user->status)
-                                            <span class="badge bg-success">Active</span>
-                                        @else
-                                            <span class="badge bg-danger">Inactive</span>
-                                        @endif
-                                    </td>
-                                    <td>{{ $user->created_at->diffForHumans() }}</td>
-                                    <td class="text-center">
-                                        <a href="" wire:click.prevent="show({{ $user }})"
-                                            class="badge bg-secondary btn-sm" title="View">
-                                            <i class="bi bi-eye me-1"></i>
-                                        </a>
-                                        <a href="" wire:click.prevent="edit({{ $user }})"
-                                            class="badge bg-warning btn-sm" title="View">
-                                            <i class="bi bi-pencil me-1"></i>
-                                        </a>
-                                        <a href="" href="" class="badge bg-danger btn-sm" title="View">
-                                            <i class="bi bi-trash me-1"></i>
-                                        </a>
-                                    </td>
+                            @if (isset($users) && count($users))
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->mobile }}</td>
+                                        <td>
+                                            @if ($user->status)
+                                                <span class="badge bg-success">Active</span>
+                                            @else
+                                                <span class="badge bg-danger">Inactive</span>
+                                            @endif
+                                        </td>
+                                        <td>{{ $user->created_at->diffForHumans() }}</td>
+                                        <td class="text-center">
+                                            <a wire:click.prevent="show({{ $user }})"
+                                                class="btn badge bg-secondary" title="View">
+                                                <i class="bi bi-eye me-1"></i>
+                                            </a>
+                                            <a wire:click.prevent="edit({{ $user }})"
+                                                class="btn badge bg-warning" title="View">
+                                                <i class="bi bi-pencil me-1"></i>
+                                            </a>
+                                            <a wire:click.prevent="delete({{ $user->id }})"
+                                                class="btn badge bg-danger" title="View">
+                                                <i class="bi bi-trash me-1"></i>
+                                            </a>
+                                        </td>
 
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="7" class="p-3">
+                                        <h4 class="text-muted">No data found</h4>
+                                    </td>
                                 </tr>
-                            @endforeach
+                            @endif
 
                         </tbody>
                     </table>
@@ -218,17 +226,17 @@
                     <div class="show">
                         <div class="row">
                             <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                            <div class="col-lg-9 col-md-8">{{ $user['name'] }}</div>
+                            <div class="col-lg-9 col-md-8"></div>
                         </div>
                         <!-- /.row -->
                         <div class="row">
                             <div class="col-lg-3 col-md-4 label">Company</div>
-                            <div class="col-lg-9 col-md-8">{{ $user['name'] }}</div>
+                            <div class="col-lg-9 col-md-8"></div>
                         </div>
                         <!-- /.row -->
                         <div class="row">
                             <div class="col-lg-3 col-md-4 label">Job</div>
-                            <div class="col-lg-9 col-md-8">{{ $user['name'] }}</div>
+                            <div class="col-lg-9 col-md-8"></div>
                         </div>
                         <!-- /.row -->
                     </div>
@@ -239,6 +247,41 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         <i class="bx bx-x"></i>
                         Close
+                    </button>
+                </div>
+                <!-- /.modal-footer -->
+
+            </div>
+            <!-- /.modal-contents -->
+
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- Modal delete user confirmation -->
+    <div class="modal fade" id="delete_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">
+                        Delete User
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- /.modal-header -->
+                <div class="modal-body">
+                    Are you sure? You can't revert this action! It's permanent.
+                </div>
+                <!-- /.modal-body -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bx bx-x"></i>
+                        Close
+                    </button>
+                    <button wire:click.prevent="destroy" type="button" class="btn btn-danger">
+                        <i class="bx bxs-trash"></i>
+                        Delete
                     </button>
                 </div>
                 <!-- /.modal-footer -->
@@ -263,13 +306,7 @@
                 </div>
                 <!-- /.toast-header -->
                 <div class="toast-body bg-success text-light">
-                    Hay! User
-                    @if ($is_edit)
-                        updated
-                    @else
-                        created
-                    @endif
-                    successfully
+                    Hay! {{ $toast_message }}
                 </div>
                 <!-- /.toast-body -->
             </div>
