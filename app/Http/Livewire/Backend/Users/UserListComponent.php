@@ -7,9 +7,16 @@ use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\WithPagination;
 
 class UserListComponent extends Component
 {
+    ## Import livewire pargination
+    use WithPagination;
+
+    ## Use bootstrap theme theme for pagination display
+    protected $paginationTheme = 'bootstrap';
+
     ## Public properties by default available to component view
     public $user = [];
     public $is_edit = false;
@@ -169,7 +176,7 @@ class UserListComponent extends Component
      */
     public function render()
     {
-        $users = User::latest()->paginate(10);
+        $users = User::latest()->paginate(5);
         return view('livewire.backend.users.user-list-component', compact('users'))->layoutData(['page_title' => 'User List']);
     }
 }

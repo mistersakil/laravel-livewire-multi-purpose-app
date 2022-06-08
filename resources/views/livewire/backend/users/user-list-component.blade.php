@@ -37,13 +37,13 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr class="table-active">
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Mobile</th>
-                                <th>Status</th>
-                                <th>Created At</th>
-                                <th class="text-center">Actions</th>
+                                <th width="5%">#</th>
+                                <th width="20%">Name</th>
+                                <th width="20%">Email</th>
+                                <th width="15%">Mobile</th>
+                                <th width="10%">Status</th>
+                                <th width="15%">Created At</th>
+                                <th width="15%" class="text-center">Actions</th>
 
                             </tr>
                         </thead>
@@ -93,7 +93,9 @@
                     <!-- /.table -->
 
                     <!-- Pagination links -->
-
+                    <div class="d-flex justify-content-end">
+                        {{ $users->links() }}
+                    </div>
 
                 </div>
                 <!-- /.card-body -->
