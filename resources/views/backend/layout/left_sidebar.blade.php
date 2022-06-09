@@ -22,7 +22,7 @@
         <li class="nav-item ">
             <a class="nav-link {{ request()->is('admin/appointments') ? '' : 'collapsed' }}"
                 href="{{ route('admin.appointments') }}">
-                <i class="ri-group-2-fill"></i>
+                <i class="ri-calendar-2-line"></i>
                 <span>Appointments</span>
             </a>
         </li>
