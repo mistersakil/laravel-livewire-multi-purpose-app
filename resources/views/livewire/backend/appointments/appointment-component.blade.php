@@ -2,7 +2,7 @@
     <div class="pagetitle d-flex justify-content-between">
         <div>
             <h1>
-                User List
+                Appointments
             </h1>
             <nav>
                 <ol class="breadcrumb">
@@ -10,7 +10,7 @@
                         <a href="{{ route('admin.dashboard') }}">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{ route('admin.users') }}">Users</a>
+                        <a href="{{ route('admin.appointments') }}">Appointments</a>
                     </li>
                 </ol>
                 <!-- /.breadcrumb -->
@@ -106,11 +106,11 @@
     <!-- Modal (create & edit user) -->
     <div class="modal fade" id="add_modal" wire:ignore.self>
         <div class="modal-dialog">
-            <form wire:submit.prevent="{{ !$is_edit ? 'store' : 'update' }}">
+            <form wire:submit.prevent="{{ isset($is_edit) && $is_edit ? 'update' : 'store' }}">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">
-                            @if ($is_edit)
+                            @if (isset($is_edit) && $is_edit)
                                 Edit User Info
                             @else
                                 Add New User
@@ -223,37 +223,21 @@
                 <div class="modal-body">
 
                     <div class="show">
-                        <div class="row mb-2">
-                            <div class="col-md-4 label ">Full Name</div>
-                            <div class="col-md-8">
-                                <input wire:model="user.name" class="form-control" readonly />
-                            </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                            <div class="col-lg-9 col-md-8"></div>
                         </div>
                         <!-- /.row -->
-                        <div class="row mb-2">
-                            <div class="col-md-4 label ">Email</div>
-                            <div class="col-md-8">
-                                <input wire:model="user.email" class="form-control" readonly />
-                            </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">Company</div>
+                            <div class="col-lg-9 col-md-8"></div>
                         </div>
                         <!-- /.row -->
-
-                        <div class="row mb-2">
-                            <div class="col-md-4 label ">Mobile</div>
-                            <div class="col-md-8">
-                                <input wire:model="user.mobile" class="form-control" readonly />
-                            </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">Job</div>
+                            <div class="col-lg-9 col-md-8"></div>
                         </div>
                         <!-- /.row -->
-
-                        <div class="row mb-2">
-                            <div class="col-md-4 label ">Joined At</div>
-                            <div class="col-md-8">
-                                <input wire:model="user.created_at" class="form-control" readonly />
-                            </div>
-                        </div>
-                        <!-- /.row -->
-
                     </div>
                     <!-- /.show -->
                 </div>
@@ -321,7 +305,10 @@
                 </div>
                 <!-- /.toast-header -->
                 <div class="toast-body bg-success text-light">
-                    Hay! {{ $toast_message }}
+                    Hay!
+                    @if (isset($toast_message))
+                        {{ $toast_message }}
+                    @endif
                 </div>
                 <!-- /.toast-body -->
             </div>

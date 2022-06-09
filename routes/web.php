@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Livewire\Backend\Users\UserListComponent;
+use App\Http\Livewire\Backend\Appointments\AppointmentComponent;
 
 ### Web Routes ###
 
@@ -13,8 +14,12 @@ Route::get('/', function () {
 
 
 ### Admin Routes ###
-Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
-Route::get('/admin/users', UserListComponent::class)->name('admin.users');
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/users', UserListComponent::class)->name('users');
+    Route::get('/appointments', AppointmentComponent::class)->name('appointments');
+});
+
 
 
 ### End: Admin Routes ###

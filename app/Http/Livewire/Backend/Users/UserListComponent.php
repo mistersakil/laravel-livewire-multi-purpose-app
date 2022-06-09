@@ -5,11 +5,11 @@ namespace App\Http\Livewire\Backend\Users;
 use App\Models\User;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
-use Livewire\Component;
+use App\Http\Livewire\Backend\BackendComponent;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
 
-class UserListComponent extends Component
+class UserListComponent extends BackendComponent
 {
     ## Import livewire pargination
     use WithPagination;
@@ -129,7 +129,7 @@ class UserListComponent extends Component
      */
     public function show(User $user)
     {
-        $this->user = $user;
+        $this->user = $user->toArray();
         $this->dispatchBrowserEvent('show_modal_event');
     }
 
@@ -176,7 +176,7 @@ class UserListComponent extends Component
      */
     public function render()
     {
-        $users = User::latest()->paginate(5);
+        $users = User::latest()->paginate(10);
         return view('livewire.backend.users.user-list-component', compact('users'))->layoutData(['page_title' => 'User List']);
     }
 }

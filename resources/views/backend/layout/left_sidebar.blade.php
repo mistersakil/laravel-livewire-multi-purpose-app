@@ -19,6 +19,15 @@
         </li>
         <!-- /.nav-item -->
 
+        <li class="nav-item ">
+            <a class="nav-link {{ request()->is('admin/appointments') ? '' : 'collapsed' }}"
+                href="{{ route('admin.appointments') }}">
+                <i class="ri-group-2-fill"></i>
+                <span>Appointments</span>
+            </a>
+        </li>
+        <!-- /.nav-item -->
+
     </ul>
     <!-- /.sidebar-nav -->
 </aside>
