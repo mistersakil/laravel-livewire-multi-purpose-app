@@ -2,12 +2,15 @@
 
 namespace App\Http\Livewire\Backend\Appointments;
 
-use Livewire\Component;
+use App\Models\Appointment;
+use App\Http\Livewire\Backend\BackendComponent;
 
-class AppointmentComponent extends Component
+class AppointmentComponent extends BackendComponent
 {
     public function render()
     {
-        return view('livewire.backend.appointments.appointment-component');
+        $models = Appointment::latest()->paginate(10);
+        // dd(count($models));
+        return view('livewire.backend.appointments.appointment-component', compact('models'))->layoutData(['page_title' => 'Appoitment List']);
     }
 }

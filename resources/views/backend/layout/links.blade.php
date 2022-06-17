@@ -1,20 +1,25 @@
-<!-- ========== Google Fonts ========== -->
-<link href="https://fonts.gstatic.com" rel="preconnect">
-<link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+<!-- Google font-->
+{{-- <link href="../../../fonts.googleapis.com/css23b4.css?family=Work+Sans:100,200,300,400,500,600,700,800,900"
     rel="stylesheet">
+<link
+    href="../../../fonts.googleapis.com/css7d83.css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet"> --}}
 
-<!-- ========== Vendor CSS Files ========== -->
+<!-- Font Awesome-->
+<link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/assets/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/assets/css/font-awesome-6.min.css">
 
-<link href="{{ asset('backend') }}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="{{ asset('backend') }}/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-<link href="{{ asset('backend') }}/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="{{ asset('backend') }}/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-<link href="{{ asset('backend') }}/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-<link href="{{ asset('backend') }}/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-<link href="{{ asset('backend') }}/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+<!-- Flag icon-->
+{{-- <link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/assets/css/flag-icon.css"> --}}
 
-<!-- ========== Template Main CSS File ========== -->
-<link href="{{ asset('backend') }}/assets/css/style.css" rel="stylesheet">
-<!-- ========== Template Custom CSS File ========== -->
-<link href="{{ asset('backend') }}/assets/css/custom.css" rel="stylesheet">
+<!-- jsgrid css-->
+{{-- <link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/assets/css/jsgrid.css"> --}}
+
+<!-- Bootstrap css-->
+<link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/assets/css/bootstrap.css">
+
+<!-- App css-->
+<link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/assets/css/admin.css">
+
+<!-- Custom css-->
+<link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/assets/css/custom.css">

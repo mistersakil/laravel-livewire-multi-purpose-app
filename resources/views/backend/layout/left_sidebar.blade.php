@@ -1,34 +1,50 @@
-<aside id="sidebar" class="sidebar">
+<div class="page-sidebar">
+    <div class="sidebar custom-scrollbar">
+        <ul class="sidebar-menu">
+            <li>
+                <a class="sidebar-header" href="{{ route('admin.dashboard') }}">
+                    <i data-feather="home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <!-- li -->
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+            <li>
+                <a class="sidebar-header" href="{{ route('admin.users') }}">
+                    <i data-feather="users"></i>
+                    <span>Users</span>
+                </a>
+            </li>
+            <!-- li -->
 
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('admin') ? '' : 'collapsed' }}"
-                href="{{ route('admin.dashboard') }}">
-                <i class="ri-grid-line"></i>
-                <span>Dashboard</span>
-            </a>
-        </li>
-        <!-- /.nav-item -->
-        <li class="nav-item ">
-            <a class="nav-link {{ request()->is('admin/users') ? '' : 'collapsed' }}"
-                href="{{ route('admin.users') }}">
-                <i class="ri-group-2-fill"></i>
-                <span>Users</span>
-            </a>
-        </li>
-        <!-- /.nav-item -->
+            <li>
+                <a class="sidebar-header" href="{{ route('admin.appointments') }}">
+                    <i data-feather="users"></i>
+                    <span>Appointments</span>
+                </a>
+            </li>
+            <!-- li -->
 
-        <li class="nav-item ">
-            <a class="nav-link {{ request()->is('admin/appointments') ? '' : 'collapsed' }}"
-                href="{{ route('admin.appointments') }}">
-                <i class="ri-calendar-2-line"></i>
-                <span>Appointments</span>
-            </a>
-        </li>
-        <!-- /.nav-item -->
-
-    </ul>
-    <!-- /.sidebar-nav -->
-</aside>
-<!-- /.sidebar -->
+            <li class="active">
+                <a class="sidebar-header" href="#">
+                    <i data-feather="dollar-sign"></i>
+                    <span>Sales</span>
+                    <i class="fa fa-angle-right pull-right"></i>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li class="active">
+                        <a href="{{ route('admin.users') }}" class="active">
+                            <i class="fa fa-circle"></i>
+                            Orders
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.sidebar-submenu -->
+            </li>
+            <!-- li -->
+        </ul>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</div>
+<!-- /.page-sidebar -->

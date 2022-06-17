@@ -1,15 +1,32 @@
-<!-- ========== Vendor JS Files ========== -->
-{{-- <script src="{{ asset('backend') }}/assets/vendor/apexcharts/apexcharts.min.js"></script> --}}
-<script src="{{ asset('backend') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-{{-- <script src="{{ asset('backend') }}/assets/vendor/chart.js/chart.min.js"></script>
-<script src="{{ asset('backend') }}/assets/vendor/echarts/echarts.min.js"></script>
-<script src="{{ asset('backend') }}/assets/vendor/quill/quill.min.js"></script>
-<script src="{{ asset('backend') }}/assets/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="{{ asset('backend') }}/assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="{{ asset('backend') }}/assets/vendor/php-email-form/validate.js"></script> --}}
+<!-- latest jquery-->
+<script src="{{ asset('backend') }}/assets/js/jquery-3.3.1.min.js"></script>
 
-<!-- Template Main JS File -->
-{{-- <script src="{{ asset('backend') }}/assets/js/main.js"></script> --}}
-<!-- Template Custom JS File -->
+<!-- Bootstrap js-->
+<script src="{{ asset('backend') }}/assets/js/popper.min.js"></script>
+<script src="{{ asset('backend') }}/assets/js/bootstrap.js"></script>
+
+<!-- feather icon js-->
+<script src="{{ asset('backend') }}/assets/js/icons/feather-icon/feather.min.js"></script>
+<script src="{{ asset('backend') }}/assets/js/icons/feather-icon/feather-icon.js"></script>
+
+<!-- Sidebar jquery-->
+<script src="{{ asset('backend') }}/assets/js/sidebar-menu.js"></script>
+
+<!-- Jsgrid js-->
+{{-- <script src="{{ asset('backend') }}/assets/js/jsgrid/jsgrid.min.js"></script>
+<script src="{{ asset('backend') }}/assets/js/jsgrid/griddata-invoice.js"></script>
+<script src="{{ asset('backend') }}/assets/js/jsgrid/jsgrid-invoice.js"></script> --}}
+
+<!--Customizer admin-->
+{{-- <script src="{{ asset('backend') }}/assets/js/admin-customizer.js"></script> --}}
+
+<!-- lazyload js-->
+{{-- <script src="{{ asset('backend') }}/assets/js/lazysizes.min.js"></script> --}}
+
+<!--right sidebar js-->
+<script src="{{ asset('backend') }}/assets/js/chat-menu.js"></script>
+
+<!--script admin-->
+<script src="{{ asset('backend') }}/assets/js/admin-script.js"></script>
+<!-- Custom JS File -->
 <script src="{{ asset('backend') }}/assets/js/custom.js" defer></script>
-{{-- <script src="{{ asset('js') }}/app.js"></script> --}}

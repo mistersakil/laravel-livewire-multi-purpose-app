@@ -2,9 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ env('META_DESCRIPTION') ?? 'Meta description' }}">
+    <meta name="keywords" content="{{ env('META_KEYWORDS') ?? 'Meta keywords' }}">
+    <meta name="author" content="{{ env('META_KEYWORDS') ?? 'sakil.diu.cse@gmail.com' }}">
     <title>
         @if (isset($page_title))
             {{ $page_title }}
@@ -12,12 +16,9 @@
             Dashboard
         @endif | {{ env('APP_NAME') }}
     </title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
     <!-- ========== Favicons ========== -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="icon" href="../assets/images/favicon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/images/favicon/favicon.png" type="image/x-icon">
     <!-- ========== End: Favicons ========== -->
 
     <!-- ========== Links ========== -->
@@ -25,8 +26,7 @@
     <!-- ========== End: Links ========== -->
 
     <!-- ========== Dynamic Styles ========== -->
-    @stack('add_css')
-
+    @stack('css')
 
     <!-- ========== Livewire Styles ========== -->
     @livewireStyles()
@@ -36,44 +36,64 @@
 
 <body>
 
-    <!-- ======= Header ======= -->
-    @includeIf('backend.layout.topbar')
-    <!-- ======= End Header ======= -->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper">
 
-    <!-- ======= Sidebar ======= -->
-    @includeIf('backend.layout.left_sidebar')
-    <!-- ======= End Sidebar ======= -->
+        <!--========== Page Header Start ==========-->
+        @includeIf('backend.layout.header')
+        <!--========== Page Header Ends ==========-->
 
-    <main id="main" class="main">
+        <!--========== Page Body Start ==========-->
+        <div class="page-body-wrapper">
 
+            <!-- Page Sidebar Start-->
+            @includeIf('backend.layout.left_sidebar')
+            <!-- End: Page Sidebar -->
 
-        <!-- ========== Main Content Area ========== -->
-        {{ $slot }}
-        <!-- ========== End:Main Content Area ========== -->
+            <!-- Right sidebar Start-->
+            {{-- maybe unnecessary --}}
+            <!-- Right sidebar Ends-->
 
+            <!--========== Main content ==========-->
+            <div class="page-body">
+                {{ $slot }}
+            </div>
+            <!--========== End: Main content ==========-->
 
-    </main>
-    <!-- End /.main -->
+            <!--========== footer start ==========-->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 footer-copyright">
+                            <p class="mb-0">Copyright {{ date('Y') }} &copy; Octapia. All rights reserved</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="pull-right mb-0">
+                                Developed By:
+                                <a href="https://www.facebook.com/groups/websiteowner" target="_blank">Octapia</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--========== footer end ==========-->
 
-    <!-- ========== Footer ========== -->
-    @includeIf('backend.layout.footer')
-    <!-- ========== End Footer ========== -->
+        </div>
+        <!--========== End: Page Body ==========-->
+    </div>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <!-- ========== Scripts ========== -->
+    <!--========== Page Body ==========-->
     @includeIf('backend.layout.scripts')
-    <!-- ========== End Scripts ========== -->
-
-    <!-- ========== Dynamic Scripts ========== -->
-    @stack('add_js')
+    <!--========== End: Page Body ==========-->
 
     <!-- ========== Livewire Scripts ========== -->
     @livewireScripts()
     <!-- ========== End:Livewire Scripts ========== -->
 
 
+
 </body>
+
+<!-- Mirrored from themes.pixelstrap.com/bigdeal/admin/invoice.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Oct 2021 09:52:45 GMT -->
 
 </html>

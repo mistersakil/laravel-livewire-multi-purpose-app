@@ -34,14 +34,14 @@
         <div class="col-lg-12">
             <div class="card pt-3">
                 <div class="card-body table-responsive">
-                    @if (isset($users) && count($users))
+                    @if (isset($models) && count($models))
                         <table class="table table-bordered table-hover">
                             <thead>
                                 <tr class="table-active">
                                     <th width="5%">#</th>
-                                    <th width="20%">Name</th>
-                                    <th width="20%">Email</th>
-                                    <th width="15%">Mobile</th>
+                                    <th width="20%">Client</th>
+                                    <th width="20%">Date</th>
+                                    <th width="15%">Time</th>
                                     <th width="10%">Status</th>
                                     <th width="15%">Created At</th>
                                     <th width="15%" class="text-center">Actions</th>
@@ -50,30 +50,30 @@
                             </thead>
                             <tbody>
 
-                                @foreach ($users as $key => $user)
+                                @foreach ($models as $key => $model)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->mobile }}</td>
+                                        <td>{{ $model->client_id }}</td>
+                                        <td>{{ $model->date }}</td>
+                                        <td>{{ $model->time }}</td>
                                         <td>
-                                            @if ($user->status)
+                                            @if ($model->status)
                                                 <span class="badge bg-success">Active</span>
                                             @else
                                                 <span class="badge bg-danger">Inactive</span>
                                             @endif
                                         </td>
-                                        <td>{{ $user->created_at->diffForHumans() }}</td>
+                                        <td>{{ $model->created_at->diffForHumans() }}</td>
                                         <td class="text-center">
-                                            <a wire:click.prevent="show({{ $user }})"
+                                            <a wire:click.prevent="show({{ $model }})"
                                                 class="btn badge bg-secondary" title="View">
                                                 <i class="bi bi-eye me-1"></i>
                                             </a>
-                                            <a wire:click.prevent="edit({{ $user }})"
+                                            <a wire:click.prevent="edit({{ $model }})"
                                                 class="btn badge bg-warning" title="View">
                                                 <i class="bi bi-pencil me-1"></i>
                                             </a>
-                                            <a wire:click.prevent="delete({{ $user->id }})"
+                                            <a wire:click.prevent="delete({{ $model->id }})"
                                                 class="btn badge bg-danger" title="View">
                                                 <i class="bi bi-trash me-1"></i>
                                             </a>
@@ -88,7 +88,7 @@
 
                         <!-- Pagination links -->
                         <div class="d-flex justify-content-end">
-                            {{ $users->links() }}
+                            {{ $models->links() }}
                         </div>
                         <!-- End: Pagination links -->
                     @else

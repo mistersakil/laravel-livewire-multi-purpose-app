@@ -1,108 +1,102 @@
-<section class="section">
-    <div class="pagetitle d-flex justify-content-between">
-        <div>
-            <h1>
-                User List
-            </h1>
-            <nav>
-                <ol class="breadcrumb">
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-header-left">
+                    <h3>
+                        User List
+                    </h3>
+                </div>
+            </div>
+            <!-- /.page-header-left -->
+            <div class="col-lg-6">
+                <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item">
-                        <a href="{{ route('admin.dashboard') }}">Home</a>
+                        <a class="btn-primary btn-sm" wire:click.prevent="create">
+                            <i class="fas fa-plus"></i>
+                            Add New
+                        </a>
                     </li>
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('admin.users') }}">Users</a>
-                    </li>
+                    <!-- /.breadcrumb-item -->
                 </ol>
                 <!-- /.breadcrumb -->
-            </nav>
-            <!-- /nav -->
+            </div>
+            <!-- /.col -->
         </div>
-        <div>
-            <button type="button" class="btn btn-secondary pull-right" id="add_btn" data-bs-toggle="modal"
-                wire:click.prevent="create">
-                <i class="bi bi-plus me-1"></i>
-                Add New
-            </button>
-        </div>
-
+        <!-- /.row -->
     </div>
-    <!-- /.pagetitle -->
-
-    <!-- User List -->
-
+    <!-- /.page-header -->
     <div class="row">
-        <div class="col-lg-12">
-            <div class="card pt-3">
-                <div class="card-body table-responsive">
-                    @if (isset($users) && count($users))
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                                <tr class="table-active">
-                                    <th width="5%">#</th>
-                                    <th width="20%">Name</th>
-                                    <th width="20%">Email</th>
-                                    <th width="15%">Mobile</th>
-                                    <th width="10%">Status</th>
-                                    <th width="15%">Created At</th>
-                                    <th width="15%" class="text-center">Actions</th>
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                @if (isset($users) && count($users))
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="table-active">
+                                <th width="5%">#</th>
+                                <th width="20%">Name</th>
+                                <th width="20%">Email</th>
+                                <th width="15%">Mobile</th>
+                                <th width="10%">Status</th>
+                                <th width="15%">Created At</th>
+                                <th width="15%" class="text-center">Actions</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach ($users as $key => $user)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->mobile }}</td>
+                                    <td>
+                                        @if ($user->status)
+                                            <span class="badge bg-success">Active</span>
+                                        @else
+                                            <span class="badge bg-danger">Inactive</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $user->created_at }}</td>
+                                    <td class="text-center">
+                                        <a href="javascript:void(0)" wire:click.prevent="show({{ $user }})"
+                                            class="badge bg-secondary" title="View">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="javascript:void(0)" wire:click.prevent="edit({{ $user }})"
+                                            class="badge bg-warning" title="View">
+                                            <i class="fas fa-pencil"></i>
+                                        </a>
+                                        <a href="javascript:void(0)" wire:click.prevent="delete({{ $user->id }})"
+                                            class="badge bg-danger" title="View">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
 
                                 </tr>
-                            </thead>
-                            <tbody>
+                            @endforeach
+                        </tbody>
+                        <!-- /tbody -->
+                    </table>
+                    <!-- /.table -->
 
-                                @foreach ($users as $key => $user)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->mobile }}</td>
-                                        <td>
-                                            @if ($user->status)
-                                                <span class="badge bg-success">Active</span>
-                                            @else
-                                                <span class="badge bg-danger">Inactive</span>
-                                            @endif
-                                        </td>
-                                        <td>{{ $user->created_at->diffForHumans() }}</td>
-                                        <td class="text-center">
-                                            <a wire:click.prevent="show({{ $user }})"
-                                                class="btn badge bg-secondary" title="View">
-                                                <i class="bi bi-eye me-1"></i>
-                                            </a>
-                                            <a wire:click.prevent="edit({{ $user }})"
-                                                class="btn badge bg-warning" title="View">
-                                                <i class="bi bi-pencil me-1"></i>
-                                            </a>
-                                            <a wire:click.prevent="delete({{ $user->id }})"
-                                                class="btn badge bg-danger" title="View">
-                                                <i class="bi bi-trash me-1"></i>
-                                            </a>
-                                        </td>
-
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                            <!-- /tbody -->
-                        </table>
-                        <!-- /.table -->
-
-                        <!-- Pagination links -->
-                        <div class="d-flex justify-content-end">
-                            {{ $users->links() }}
-                        </div>
-                        <!-- End: Pagination links -->
-                    @else
-                        <h4 class="text-muted p-2"> No data found </h4>
-                    @endif
-                </div>
-                <!-- /.card-body -->
+                    <!-- Pagination links -->
+                    <div class="d-flex justify-content-end">
+                        {{ $users->links() }}
+                    </div>
+                    <!-- End: Pagination links -->
+                @else
+                    <h4 class="text-muted p-2"> No data found </h4>
+                @endif
             </div>
-            <!-- /.card -->
+            <!-- /.table-responsive -->
+
+
         </div>
         <!-- /.col -->
     </div>
     <!-- /.row -->
-
     <!-- Modal (create & edit user) -->
     <div class="modal fade" id="add_modal" wire:ignore.self>
         <div class="modal-dialog">
@@ -117,8 +111,7 @@
                             @endif
 
                         </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!-- /.modal-header -->
                     <div class="modal-body">
@@ -222,40 +215,39 @@
                 <!-- /.modal-header -->
                 <div class="modal-body">
 
-                    <div class="show">
-                        <div class="row mb-2">
-                            <div class="col-md-4 label ">Full Name</div>
-                            <div class="col-md-8">
-                                <input wire:model="user.name" class="form-control" readonly />
-                            </div>
-                        </div>
-                        <!-- /.row -->
-                        <div class="row mb-2">
-                            <div class="col-md-4 label ">Email</div>
-                            <div class="col-md-8">
-                                <input wire:model="user.email" class="form-control" readonly />
-                            </div>
-                        </div>
-                        <!-- /.row -->
 
-                        <div class="row mb-2">
-                            <div class="col-md-4 label ">Mobile</div>
-                            <div class="col-md-8">
-                                <input wire:model="user.mobile" class="form-control" readonly />
-                            </div>
+                    <div class="row mb-2">
+                        <div class="col-md-4 col-form-label ">Full Name</div>
+                        <div class="col-md-8">
+                            <input wire:model="user.name" class="form-control" readonly />
                         </div>
-                        <!-- /.row -->
-
-                        <div class="row mb-2">
-                            <div class="col-md-4 label ">Joined At</div>
-                            <div class="col-md-8">
-                                <input wire:model="user.created_at" class="form-control" readonly />
-                            </div>
-                        </div>
-                        <!-- /.row -->
-
                     </div>
-                    <!-- /.show -->
+                    <!-- /.row -->
+                    <div class="row mb-2">
+                        <div class="col-md-4 col-form-label ">Email</div>
+                        <div class="col-md-8">
+                            <input wire:model="user.email" class="form-control" readonly />
+                        </div>
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="row mb-2">
+                        <div class="col-md-4 col-form-label ">Mobile</div>
+                        <div class="col-md-8">
+                            <input wire:model="user.mobile" class="form-control" readonly />
+                        </div>
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="row mb-2">
+                        <div class="col-md-4 col-form-label ">Joined At</div>
+                        <div class="col-md-8">
+                            <input wire:model="user.created_at" class="form-control" readonly />
+                        </div>
+                    </div>
+                    <!-- /.row -->
+
+
                 </div>
                 <!-- /.modal-body -->
                 <div class="modal-footer">
@@ -330,6 +322,5 @@
         <!-- /.toast-container -->
     </div>
     <!-- End: Toast Notification -->
-
-</section>
-<!-- /.section -->
+</div>
+<!-- /.container-fluid -->

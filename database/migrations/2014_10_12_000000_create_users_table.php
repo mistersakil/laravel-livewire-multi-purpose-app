@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('mobile')->unique();
             $table->string('password');
             $table->boolean('status')->default(1);
-            $table->string('token');
+            $table->string('token')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

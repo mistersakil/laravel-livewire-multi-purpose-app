@@ -1,11 +1,3 @@
-/*--------------------------------------------------------------
-# Custom Styles
---------------------------------------------------------------*/
-#main {
-    min-height: calc(100vh - 150px);
-    padding-bottom: 0;
-}
-
-.pagetitle {
-    margin-bottom: 0px;
+.page-wrapper .page-main-header {
+    background-color: #e8ebf2;
 }
