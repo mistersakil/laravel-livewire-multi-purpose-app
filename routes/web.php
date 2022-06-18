@@ -18,6 +18,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', UserListComponent::class)->name('users');
     Route::get('/appointments', AppointmentComponent::class)->name('appointments');
+    Route::get('/customers', AppointmentComponent::class)->name('customers');
 });
 
 

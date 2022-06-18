@@ -58,7 +58,7 @@
                                             <span class="badge bg-danger">Inactive</span>
                                         @endif
                                     </td>
-                                    <td>{{ $user->created_at }}</td>
+                                    <td>{{ $user->created_at->diffForHumans() }}</td>
                                     <td class="text-center">
                                         <a href="javascript:void(0)" wire:click.prevent="show({{ $user }})"
                                             class="badge bg-secondary" title="View">
@@ -223,6 +223,7 @@
                         </div>
                     </div>
                     <!-- /.row -->
+
                     <div class="row mb-2">
                         <div class="col-md-4 col-form-label ">Email</div>
                         <div class="col-md-8">
@@ -234,7 +235,7 @@
                     <div class="row mb-2">
                         <div class="col-md-4 col-form-label ">Mobile</div>
                         <div class="col-md-8">
-                            <input wire:model="user.mobile" class="form-control" readonly />
+                            <input type="text" wire:model="user.mobile" class="form-control" readonly />
                         </div>
                     </div>
                     <!-- /.row -->

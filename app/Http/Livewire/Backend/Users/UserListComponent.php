@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Livewire\Backend\BackendComponent;
+use App\Http\Resources\UserCollection;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
 
@@ -123,7 +124,7 @@ class UserListComponent extends BackendComponent{
      */
     public function show(User $user)
     {
-        $this->user = $user->toArray();
+        $this->user = collect(new UserCollection($user))->toArray();
         $this->dispatchBrowserEvent('show_modal_event');
     }
 

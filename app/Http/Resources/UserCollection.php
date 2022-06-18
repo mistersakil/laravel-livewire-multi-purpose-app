@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserCollection extends JsonResource
@@ -24,11 +23,11 @@ class UserCollection extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'mobile ' => $this->mobile,
+            'name' => ucwords($this->name),
+            'mobile' => $this->mobile,
             'email' => $this->email,
             'status' => $this->status,
-            'created_at' => $this->created_at,
+            'created_at' => custom_date_time_format($this->created_at, 'd M, Y')
         ];
     }
 }
