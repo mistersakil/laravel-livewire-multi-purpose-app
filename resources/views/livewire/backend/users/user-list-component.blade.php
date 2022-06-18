@@ -12,7 +12,7 @@
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item">
-                        <a class="btn-primary btn-sm" wire:click.prevent="create">
+                        <a href="javascript:void(0)" class="badge bg-dark btn-sm p-2" wire:click.prevent="create">
                             <i class="fas fa-plus"></i>
                             Add New
                         </a>
@@ -100,11 +100,11 @@
     <!-- Modal (create & edit user) -->
     <div class="modal fade" id="add_modal" wire:ignore.self>
         <div class="modal-dialog">
-            <form wire:submit.prevent="{{ !$is_edit ? 'store' : 'update' }}">
+            <form wire:submit.prevent="{{ isset($is_edit) && $is_edit ? 'update' : 'store' }}">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">
-                            @if ($is_edit)
+                            @if (isset($is_edit) && $is_edit)
                                 Edit User Info
                             @else
                                 Add New User
@@ -314,7 +314,10 @@
                 </div>
                 <!-- /.toast-header -->
                 <div class="toast-body bg-success text-light">
-                    Hay! {{ $toast_message }}
+                    Hay!
+                    @isset($toast_message)
+                        {{ $toast_message }}
+                    @endisset
                 </div>
                 <!-- /.toast-body -->
             </div>
